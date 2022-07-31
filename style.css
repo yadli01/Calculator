@@ -1,0 +1,73 @@
+*, *::before, *::after{
+    box-sizing: border-box; /*  */
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+body {
+    /* remove all padding and margin */
+    padding: 0;
+    margin: 0;
+
+    background: linear-gradient(to right,#00AAFF, #00FF6C);
+}
+
+/* class wrap all buttons and elements */
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    /* fill 100% of the height all the time */
+    min-height: 100vh;
+
+    /* set 4 columns and 100px for each */
+    grid-template-columns: repeat(4,100px);
+
+    /* set 5 rows and 100px for each */
+    grid-template-rows: minmax(120px,auto)repeat(5,100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer; 
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255,255,255, .75);
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(255,255,255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1; /* span the entire width */
+    background-color: rgba(0,0,0, .75);
+    display: flex;
+    align-items: flex-end;
+    /* Đẩy các flex item xuống đáy  */
+
+    justify-content: space-around;
+    flex-direction: column; 
+    /* hướng xếp chồng theo cột (vertical) */
+
+    padding: 10px;
+    word-wrap:break-word;
+    /* Ngắt từ dài xuống dòng mới khi tới cuối dòng */
+
+    word-break: break-all;
+    /* Ngắt từ tại một vị trí bất kì khi tới cuối dòng */
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255, .75);
+    font-size: 1.5 rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5 rem;
+}
